@@ -3,7 +3,7 @@
   <a href="[]()">
     <img src="assets/logo_02.png" alt="Logo" width="280"> 
   </a>  
-<h2 align="center" style="font-size: 30px;"><strong><em>SafeClawBench</em></strong>: An OS-perspective benchmark for self-hosted AI agents.</h2>
+<h2 align="center" style="font-size: 30px;"><strong><em>SafeClawBench</em></strong>: An Operating-System Perspective on Evaluating Self-Hosted AI Agent Safety.</h2>
 
 </div>
 
