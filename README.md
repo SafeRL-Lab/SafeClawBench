@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/logo.png" alt="SafeClawBench logo" width="220">
+</p>
+
 # SafeClawBench
 
 **An OS-perspective benchmark for self-hosted AI agents.**
