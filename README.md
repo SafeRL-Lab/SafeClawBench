@@ -64,7 +64,8 @@ Per-category descriptions are in [`CONTRIBUTOR_GUIDE.md`](CONTRIBUTOR_GUIDE.md).
 
 ## Headline Results
 
-We evaluate **15 (platform, model) configurations** spanning three OpenClaw-family platforms and five frontier LLMs.
+We evaluate **15 (platform, model) configurations** spanning three OpenClaw-family platforms and five frontier LLMs. 🔴 Cells report **Attack-success % / Safety-score (1.0 = completely safe, 0.0 = completely compromised)**. $N{=}456$ per row.
+
 
 | Platform | Model | SSI | SPE | ACDF | IPI | **Overall** |
 |----------|-------|:---:|:---:|:----:|:---:|:-----------:|
@@ -84,7 +85,7 @@ We evaluate **15 (platform, model) configurations** spanning three OpenClaw-fami
 | SecLaw   | Gemini-3.1-Pro | 30.0 / 0.70 | 64.4 / 0.52 | 41.1 / 0.78 | 71.0 / 0.29 | **49.3 / 0.60** |
 | SecLaw   | Claude-Opus-4.6 | 15.0 / 0.85 | 42.2 / 0.78 | 17.1 / 0.94 | 23.0 / 0.76 | **22.8 / 0.85** |
 
-Cells report **Attack-success % / Safety-score** (1.0 = completely safe, 0.0 = completely compromised). $N{=}456$ per row.
+
 
 **Key findings**:
 
