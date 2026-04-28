@@ -1,6 +1,6 @@
 
 <div align="center">
-  <a href="[https://github.com/SafeRL-Lab/clawspring](https://github.com/SafeRL-Lab/SafeClawBench)">
+  <a href="[]()">
     <img src="assets/logo_02.png" alt="Logo" width="280"> 
   </a>  
 <h2 align="center" style="font-size: 30px;"><strong><em>SafeClawBench</em></strong>: An OS-perspective benchmark for self-hosted AI agents.</h2>
