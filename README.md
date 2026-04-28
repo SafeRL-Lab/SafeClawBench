@@ -342,6 +342,6 @@ If you use SafeClawBench in your research, please cite:
 
 ## License
 
-Released under the **MIT License**.
+Released under the **MIT License**. See [LICENSE](LICENSE) for details.
 
 The benchmark is intended for **defensive security research**. All adversarial tasks target an isolated containerized testbed; payloads are synthetic and cannot cause harm outside the evaluation environment. We follow responsible disclosure principles for any OS-invariant violations identified in the OpenClaw family of platforms.
