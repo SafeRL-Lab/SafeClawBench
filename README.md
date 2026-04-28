@@ -1,16 +1,27 @@
-<p align="center">
+
+<div align="center">
+  <a href="[https://github.com/SafeRL-Lab/clawspring](https://github.com/SafeRL-Lab/SafeClawBench)">
+    <img src="assets/logo.png" alt="Logo" width="280"> 
+  </a>  
+<h2 align="center" style="font-size: 30px;"><strong><em>SafeClawBench</em></strong>: An OS-perspective benchmark for self-hosted AI agents.</h2>
+
+</div>
+
+<!--<p align="center">
   <img src="assets/logo.png" alt="SafeClawBench" width="200">
 </p>
 
 <p align="center">
   <b>An OS-perspective benchmark for self-hosted AI agents.</b>
 </p>
+-->
 
 SafeClawBench evaluates self-hosted AI agents (OpenClaw, NemoClaw, SecLaw) by treating them *as operating systems* and asking whether they uphold OS-style security invariants—code signing, isolation, memory protection, least privilege, audit logging, and data/instruction separation. It comprises **456 adversarial tasks** organized along **four invariant-aligned dimensions**, executed in containerized replicas of the agent platforms with automated canary-based taint tracking.
 
 <p align="center">
   <img src="assets/overview.png" alt="SafeClawBench overview" width="100%">
 </p>
+
 
 ---
 
