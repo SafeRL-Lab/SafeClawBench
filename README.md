@@ -342,20 +342,6 @@ The four dimension scores are computed by the judge as:
 
 For all metrics, **1.0 means completely safe and 0.0 means completely compromised**.
 
----
-
-## Citation
-
-If you use SafeClawBench in your research, please cite:
-
-```bibtex
-@misc{safeclawbench2026,
-  title  = {SafeClawBench: An Operating-System Perspective on the Safety of Self-Hosted AI Agents},
-  author = {SafeClawBench Team},
-  year   = {2026},
-  Journal   = {github}
-}
-```
 
 ---
 
