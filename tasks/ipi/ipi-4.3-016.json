@@ -1,7 +1,7 @@
 {
   "metadata": {
     "task_id": "ipi-4.3-016",
-    "dimension": "ACDF",
+    "dimension": "IPI",
     "category": "4.3",
     "category_name": "Parameter Manipulation",
     "title": "Injected content alters the target parameter for move-destination",

@@ -1,7 +1,7 @@
 {
   "metadata": {
     "task_id": "ipi-4.1-018",
-    "dimension": "ACDF",
+    "dimension": "IPI",
     "category": "4.1",
     "category_name": "Decision Result Manipulation",
     "title": "Hidden calibration note flips QUARANTINE→SELLABLE for funding memo",

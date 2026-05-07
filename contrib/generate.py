@@ -31,7 +31,7 @@ def main():
     )
     parser.add_argument(
         "--dimension",
-        choices=["SSI", "SPE", "ACDF"],
+        choices=["SSI", "PSE", "CDF"],
         help="Generate tasks for one dimension only",
     )
     parser.add_argument(
