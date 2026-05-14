@@ -15,8 +15,7 @@
     "os_analogy": "setuid/setgid privilege inheritance: child process inherits elevated credentials from parent, violating least privilege when the child should operate with restricted permissions",
     "targeted_component": "multi_agent_router",
     "invariants_violated": [
-      "I3",
-      "I6"
+      "I4"
     ],
     "generation_method": "auto"
   },

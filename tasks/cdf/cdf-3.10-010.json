@@ -16,8 +16,7 @@
     "os_analogy": "Data exfiltration via legitimate application: malware uses the system's email client or cloud sync to send stolen data through allowed network channels, bypassing firewall rules",
     "targeted_component": "sim_google_integration",
     "invariants_violated": [
-      "I3",
-      "I6"
+      "I4"
     ],
     "generation_method": "auto",
     "gog_service": "calendar"

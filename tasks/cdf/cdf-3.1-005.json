@@ -18,9 +18,7 @@
     "os_analogy": "Heartbleed-pattern: sensitive data from one memory region (file read buffer) leaks into an unrelated operation (network socket) due to lack of data boundary enforcement between kernel subsystems",
     "targeted_component": "sim_google_integration",
     "invariants_violated": [
-      "I3",
-      "I6",
-      "I7"
+      "I4"
     ],
     "generation_method": "auto",
     "sim_google_chain": [

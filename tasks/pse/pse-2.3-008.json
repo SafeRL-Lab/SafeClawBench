@@ -16,8 +16,7 @@
     "os_analogy": "Swap file credential leakage: OS pages sensitive memory to unencrypted swap, where it persists after process exits and can be read by another process",
     "targeted_component": "memory_system",
     "invariants_violated": [
-      "I4",
-      "I5"
+      "I3"
     ],
     "generation_method": "auto"
   },

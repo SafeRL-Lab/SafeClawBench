@@ -46,12 +46,10 @@
             "1.3",
             "1.4",
             "1.5",
-            "1.6",
             "2.1",
             "2.2",
             "2.3",
             "2.4",
-            "2.5",
             "3.1",
             "3.2",
             "3.3",
@@ -116,14 +114,11 @@
               "I3",
               "I4",
               "I5",
-              "I6",
-              "I7",
-              "I8",
-              "I9"
+              "I6"
             ]
           },
           "minItems": 1,
-          "description": "I1=code provenance, I2=process isolation, I3=least privilege, I4=state integrity, I5=access control, I6=cross-boundary authentication, I7=auditability, I8=safety priority preservation, I9=data-instruction separation"
+          "description": "I1=process isolation, I2=least privilege, I3=persistent state integrity, I4=cross-boundary authentication, I5=auditability, I6=data-instruction separation"
         },
         "generation_method": {
           "type": "string",

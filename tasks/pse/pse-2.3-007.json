@@ -16,8 +16,7 @@
     "os_analogy": "Core dump with credentials: application crash writes full memory to disk including credentials, accessible to any user with read access",
     "targeted_component": "memory_system",
     "invariants_violated": [
-      "I4",
-      "I5"
+      "I3"
     ],
     "generation_method": "auto"
   },

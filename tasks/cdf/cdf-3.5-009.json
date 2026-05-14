@@ -15,9 +15,7 @@
     "os_analogy": "Webhook-triggered RCE: an unauthenticated webhook endpoint receives a crafted payload that triggers arbitrary command execution on the server",
     "targeted_component": "webhook_handler",
     "invariants_violated": [
-      "I3",
-      "I6",
-      "I7"
+      "I4"
     ],
     "generation_method": "auto"
   },

@@ -16,8 +16,7 @@
     "os_analogy": "Covert channel via DNS/HTTPS: data exfiltrated through legitimate protocols (DNS queries, HTTPS to allowed domains) that bypass network monitoring",
     "targeted_component": "sim_google_integration",
     "invariants_violated": [
-      "I3",
-      "I6"
+      "I4"
     ],
     "generation_method": "auto",
     "gog_service": "chat"

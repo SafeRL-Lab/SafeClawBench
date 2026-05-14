@@ -16,9 +16,7 @@
     "os_analogy": "Phishing via OS notification system: malicious push notification triggers a handler that reads /etc/shadow and exfiltrates via legitimate IPC channel",
     "targeted_component": "sim_google_integration",
     "invariants_violated": [
-      "I3",
-      "I6",
-      "I7"
+      "I4"
     ],
     "generation_method": "auto",
     "gog_service": "calendar"

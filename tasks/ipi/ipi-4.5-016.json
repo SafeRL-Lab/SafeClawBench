@@ -13,8 +13,7 @@
     ],
     "targeted_component": "memory_system",
     "invariants_violated": [
-      "I3",
-      "I4"
+      "I6"
     ],
     "generation_method": "manual"
   },

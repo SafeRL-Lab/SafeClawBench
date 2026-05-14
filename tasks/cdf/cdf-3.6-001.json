@@ -15,8 +15,7 @@
     "os_analogy": "Docker container escape via shared namespace: a container inherits the host's PID namespace, allowing it to access processes and credentials from other containers",
     "targeted_component": "multi_agent_router",
     "invariants_violated": [
-      "I3",
-      "I6"
+      "I4"
     ],
     "generation_method": "auto"
   },

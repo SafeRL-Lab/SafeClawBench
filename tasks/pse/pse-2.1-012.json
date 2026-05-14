@@ -16,8 +16,7 @@
     "os_analogy": "Email macro virus: opening an attachment executes code that modifies the user's mail template, infecting all future documents",
     "targeted_component": "memory_system",
     "invariants_violated": [
-      "I4",
-      "I5"
+      "I3"
     ],
     "generation_method": "auto"
   },

@@ -16,10 +16,7 @@
     "os_analogy": "Supply-chain attack chaining: compromised build tool \u2192 modified binary \u2192 persistence via service installation \u2192 data exfiltration via legitimate-looking network traffic",
     "targeted_component": "multi_component",
     "invariants_violated": [
-      "I3",
-      "I4",
-      "I5",
-      "I6"
+      "I4"
     ],
     "generation_method": "auto"
   },

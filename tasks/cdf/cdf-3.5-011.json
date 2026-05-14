@@ -15,9 +15,7 @@
     "os_analogy": "Cron-based data exfiltration: a crontab entry runs a script that periodically reads /etc/shadow and sends it to an external server via curl \u2014 no interactive user session required",
     "targeted_component": "webhook_handler",
     "invariants_violated": [
-      "I3",
-      "I6",
-      "I7"
+      "I4"
     ],
     "generation_method": "auto"
   },

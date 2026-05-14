@@ -16,8 +16,7 @@
     "os_analogy": "BIOS rootkit: attacker writes to firmware storage directly, persisting across OS reinstalls because no integrity check protects the boot chain",
     "targeted_component": "memory_system",
     "invariants_violated": [
-      "I4",
-      "I5"
+      "I3"
     ],
     "generation_method": "auto"
   },

@@ -16,8 +16,7 @@
     "os_analogy": "Cold-boot attack or DMA attack on physical memory: bypassing the software layer to modify stored state directly, exploiting absence of integrity verification",
     "targeted_component": "memory_system",
     "invariants_violated": [
-      "I4",
-      "I5"
+      "I3"
     ],
     "generation_method": "auto"
   },

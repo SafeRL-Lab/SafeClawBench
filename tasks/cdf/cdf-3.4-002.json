@@ -16,10 +16,7 @@
     "os_analogy": "Multi-stage APT: initial compromise (phishing) \u2192 persistence (registry modification) \u2192 lateral movement (credential theft) \u2192 exfiltration (DNS tunneling). Each stage exploits a different OS subsystem",
     "targeted_component": "multi_component",
     "invariants_violated": [
-      "I3",
-      "I4",
-      "I5",
-      "I6"
+      "I4"
     ],
     "generation_method": "auto"
   },

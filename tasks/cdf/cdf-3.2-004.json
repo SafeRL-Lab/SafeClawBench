@@ -17,8 +17,7 @@
     "os_analogy": "Cron-based rootkit: a scheduled task runs with elevated privileges, periodically exfiltrating /etc/shadow to an external server",
     "targeted_component": "event_handler",
     "invariants_violated": [
-      "I3",
-      "I6"
+      "I4"
     ],
     "generation_method": "auto"
   },

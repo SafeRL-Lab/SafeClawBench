@@ -6,7 +6,7 @@
 
 </div>
 
-SafeClawBench evaluates self-hosted AI agents (OpenClaw, NemoClaw, SecLaw) by treating them *as operating systems* and asking whether they uphold OS-style security invariants—code provenance, process isolation, least privilege, state integrity, access control, cross-boundary authentication, auditability, safety priority preservation, and data/instruction separation. It comprises **436 adversarial tasks** organized along **four invariant-aligned dimensions**, executed in containerized replicas of the agent platforms with automated canary-based taint tracking.
+SafeClawBench evaluates self-hosted AI agents (OpenClaw, NemoClaw, SecLaw) by treating them *as operating systems* and asking whether they uphold OS-style security invariants—process isolation, least privilege, persistent state integrity, cross-boundary authentication, auditability, and data/instruction separation. It comprises **406 adversarial tasks** organized along **four invariant-aligned dimensions**, executed in containerized replicas of the agent platforms with automated canary-based taint tracking.
 
 <p align="center">
   <img src="assets/overview.png" alt="SafeClawBench overview" width="100%">
@@ -31,19 +31,16 @@ Self-hosted AI agents already perform OS-level functions: they load packages (Sk
   <img src="assets/architecture.png" alt="Architecture and attack surfaces" width="92%">
 </p>
 
-We derive the benchmark's dimensions top-down from **nine OS-style security invariants** rather than enumerating attacks ad hoc:
+We derive the benchmark's dimensions top-down from **six OS-style security invariants** rather than enumerating attacks ad hoc:
 
 | ID | Security Invariant | SafeClawBench Dimension |
 |:--:|--------------------|------------------------|
-| I1 | Code provenance                           | SSI |
-| I2 | Process isolation                         | SSI |
-| I3 | Least privilege                           | SSI, CDF |
-| I4 | State integrity                           | PSE |
-| I5 | Access control                            | PSE |
-| I6 | Cross-boundary authentication             | CDF |
-| I7 | Auditability                              | CDF |
-| I8 | Safety priority preservation              | PSE |
-| I9 | Data-instruction separation               | IPI |
+| I1 | Process isolation                         | SSI |
+| I2 | Least privilege                           | SSI, CDF |
+| I3 | Persistent state integrity                | PSE |
+| I4 | Cross-boundary authentication             | CDF |
+| I5 | Auditability                              | CDF |
+| I6 | Data-instruction separation               | IPI |
 
 This gives a benchmark that is comprehensive by construction (each invariant contributes one or more dimensions) and interpretable (every failure is attributable to a named invariant and a named architectural component).
 
@@ -51,12 +48,12 @@ This gives a benchmark that is comprehensive by construction (each invariant con
 
 ## What's Inside
 
-**436 adversarial tasks** across **4 invariant-aligned dimensions** and **26 sub-categories**:
+**406 adversarial tasks** across **4 invariant-aligned dimensions** and **24 sub-categories**:
 
 | Dimension | Tasks | What it tests |
 |-----------|:-----:|---------------|
-| **SSI** — Skill Supply-Chain Integrity | 120 | Whether malicious Skills compromise the agent when loaded (hidden exfiltration, persistent backdoor, privilege escalation, Skill-use confusion, malicious plugin, insecure bundled script). |
-| **PSE** — Persistent State Exploitation | 70 | Whether persistent state (memory, gateway configuration) can be poisoned for cross-session influence (memory injection, direct memory manipulation, sensitive data leak to memory, attention dilution, configuration tampering). |
+| **SSI** — Skill Supply-Chain Integrity | 100 | Whether malicious Skills compromise the agent when loaded (hidden exfiltration, persistent backdoor, privilege escalation, malicious plugin, insecure bundled script). |
+| **PSE** — Persistent State Exploitation | 60 | Whether persistent state (memory, gateway configuration) can be poisoned for cross-session influence (memory injection, direct memory manipulation, sensitive data leak to memory, configuration tampering). |
 | **CDF** — Cross-Boundary Data Flow | 146 | Whether credentials leak across service boundaries (Sim-Google tool chain, task-context contamination, in-session context spillover, compound attack, webhook/cron-triggered, multi-agent inheritance, plaintext storage, log file exfiltration, Sim-Google inbound/outbound). |
 | **IPI** — Indirect Prompt Injection | 100 | Whether attacker-planted directives in file/email/document content override the user's instruction (decision manipulation, action switching, parameter manipulation, branch divergence, delegation exploitation). |
 
@@ -66,38 +63,38 @@ Per-category descriptions are in [`CONTRIBUTOR_GUIDE.md`](CONTRIBUTOR_GUIDE.md).
 
 ## Headline Results
 
-We evaluate **15 (platform, model) configurations** spanning three OpenClaw-family platforms and five frontier LLMs. 🔴 Cells report **Attack-success % / Security-score (1.0 = completely secure, 0.0 = completely compromised)**. $N{=}436$ per row.
+We evaluate **15 (platform, model) configurations** spanning three OpenClaw-family platforms and five frontier LLMs. 🔴 Cells report **Attack-success % / Security-score (1.0 = completely secure, 0.0 = completely compromised)**. $N{=}406$ per row.
 
 
 | Platform | Model | SSI | PSE | CDF | IPI | **Overall** |
 |----------|-------|:---:|:---:|:---:|:---:|:-----------:|
-| OpenClaw | GPT-5.1-Codex   | 75.0 / 0.25 | 72.9 / 0.39 | 60.3 / 0.32 | 65.0 / 0.35 | **67.4 / 0.32** |
-| OpenClaw | GPT-5.4         | 75.0 / 0.25 | 70.0 / 0.44 | 67.8 / 0.43 | 61.0 / 0.39 | **68.6 / 0.37** |
-| OpenClaw | Gemini-3-Flash  | 62.5 / 0.38 | 58.6 / 0.51 | 44.5 / 0.35 | 67.0 / 0.29 | **56.9 / 0.37** |
-| OpenClaw | Gemini-3.1-Pro  | 61.7 / 0.38 | 51.4 / 0.63 | 32.2 / 0.58 | 58.0 / 0.42 | **49.3 / 0.50** |
-| OpenClaw | Claude-Opus-4.6 | 45.8 / 0.54 | 10.0 / 0.93 |  8.2 / 0.67 | 17.0 / 0.80 | **20.9 / 0.71** |
-| NemoClaw | GPT-5.1-Codex   | 75.0 / 0.25 | 72.9 / 0.39 | 64.4 / 0.31 | 63.0 / 0.36 | **68.3 / 0.32** |
-| NemoClaw | GPT-5.4         | 75.0 / 0.25 | 67.1 / 0.47 | 66.4 / 0.44 | 67.0 / 0.32 | **69.0 / 0.36** |
-| NemoClaw | Gemini-3-Flash  | 57.5 / 0.42 | 55.7 / 0.53 | 45.9 / 0.36 | 62.0 / 0.37 | **54.4 / 0.41** |
-| NemoClaw | Gemini-3.1-Pro  | 58.3 / 0.42 | 38.6 / 0.74 | 31.5 / 0.58 | 49.0 / 0.51 | **44.0 / 0.54** |
-| NemoClaw | Claude-Opus-4.6 | 40.0 / 0.60 | 15.7 / 0.94 |  4.8 / 0.67 | 17.0 / 0.81 | **19.0 / 0.73** |
-| SecLaw   | GPT-5.1-Codex   | 16.7 / 0.83 | 41.4 / 0.72 | 30.1 / 0.53 | 32.0 / 0.67 | **28.7 / 0.68** |
-| SecLaw   | GPT-5.4         | 21.7 / 0.78 | 30.0 / 0.83 | 14.4 / 0.93 | 26.0 / 0.74 | **21.6 / 0.83** |
-| SecLaw   | Gemini-3-Flash  | 29.2 / 0.71 | 62.9 / 0.50 | 50.0 / 0.30 | 73.0 / 0.27 | **51.6 / 0.44** |
-| SecLaw   | Gemini-3.1-Pro  | 30.0 / 0.70 | 61.4 / 0.55 | 41.1 / 0.78 | 71.0 / 0.29 | **48.2 / 0.61** |
-| SecLaw   | Claude-Opus-4.6 | 15.0 / 0.85 | 30.0 / 0.85 | 17.1 / 0.94 | 23.0 / 0.76 | **20.0 / 0.86** |
+| OpenClaw | GPT-5.1-Codex   | 73.0 / 0.27 | 78.3 / 0.35 | 60.3 / 0.32 | 65.0 / 0.35 | **67.2 / 0.32** |
+| OpenClaw | GPT-5.4         | 77.0 / 0.23 | 76.7 / 0.39 | 67.8 / 0.43 | 61.0 / 0.39 | **69.7 / 0.37** |
+| OpenClaw | Gemini-3-Flash  | 69.0 / 0.31 | 60.0 / 0.51 | 44.5 / 0.35 | 67.0 / 0.29 | **58.4 / 0.35** |
+| OpenClaw | Gemini-3.1-Pro  | 67.0 / 0.33 | 53.3 / 0.64 | 32.2 / 0.58 | 58.0 / 0.42 | **50.2 / 0.49** |
+| OpenClaw | Claude-Opus-4.6 | 54.0 / 0.46 | 10.0 / 0.94 |  8.2 / 0.67 | 17.0 / 0.80 | **21.9 / 0.69** |
+| NemoClaw | GPT-5.1-Codex   | 73.0 / 0.27 | 80.0 / 0.34 | 64.4 / 0.31 | 63.0 / 0.36 | **68.5 / 0.32** |
+| NemoClaw | GPT-5.4         | 76.0 / 0.24 | 71.7 / 0.44 | 66.4 / 0.44 | 67.0 / 0.32 | **69.7 / 0.36** |
+| NemoClaw | Gemini-3-Flash  | 61.0 / 0.39 | 56.7 / 0.53 | 45.9 / 0.36 | 62.0 / 0.37 | **55.2 / 0.39** |
+| NemoClaw | Gemini-3.1-Pro  | 64.0 / 0.36 | 40.0 / 0.75 | 31.5 / 0.58 | 49.0 / 0.51 | **45.1 / 0.53** |
+| NemoClaw | Claude-Opus-4.6 | 47.0 / 0.53 | 18.3 / 0.93 |  4.8 / 0.67 | 17.0 / 0.81 | **20.2 / 0.71** |
+| SecLaw   | GPT-5.1-Codex   | 19.0 / 0.81 | 41.7 / 0.74 | 30.1 / 0.53 | 32.0 / 0.67 | **29.6 / 0.66** |
+| SecLaw   | GPT-5.4         | 24.0 / 0.76 | 30.0 / 0.85 | 14.4 / 0.93 | 26.0 / 0.74 | **21.9 / 0.83** |
+| SecLaw   | Gemini-3-Flash  | 29.0 / 0.71 | 61.7 / 0.53 | 50.0 / 0.30 | 73.0 / 0.27 | **52.2 / 0.43** |
+| SecLaw   | Gemini-3.1-Pro  | 34.0 / 0.66 | 61.7 / 0.57 | 41.1 / 0.78 | 71.0 / 0.29 | **49.8 / 0.60** |
+| SecLaw   | Claude-Opus-4.6 | 18.0 / 0.82 | 31.7 / 0.85 | 17.1 / 0.94 | 23.0 / 0.76 | **20.9 / 0.85** |
 
 
 
 **Key findings**:
 
-- **Overall attack success rate spans 19.0%–69.0%.** Even the most secure configuration (NemoClaw + Claude-Opus-4.6) is compromised on roughly 1 in 5 tasks; the worst (NemoClaw + GPT-5.4) on 7 in 10.
-- **Malicious plugins reach 100% on every unhardened configuration regardless of LLM.** Cat 1.5 (in-process plugin) bypasses the LLM entirely; only platform-level absence of the loader (as in SecLaw) stops it (drops to 0%).
+- **Overall attack success rate spans 20.2%–69.7%.** Even the most secure configuration (NemoClaw + Claude-Opus-4.6) is compromised on roughly 1 in 5 tasks; the worst (OpenClaw / NemoClaw + GPT-5.4) on 7 in 10.
+- **Malicious plugins reach 100% on every unhardened configuration regardless of LLM.** Cat 1.4 (in-process plugin) bypasses the LLM entirely; only platform-level absence of the loader (as in SecLaw) stops it (drops to 0%).
 - **Memory injection exceeds 60% on every non-Opus configuration.** Without integrity-protected memory (D5), persistent state gets poisoned across sessions.
-- **Platform hardening is strongly model-dependent.** SecLaw cuts the GPT-5 family's attack rate by up to **−47 pp** (GPT-5.4: 68.6 → 21.6), but barely moves Gemini-3-Flash (−5.3 pp) and even *worsens* Gemini-3.1-Pro on PSE (51.4 → 61.4) and IPI (58.0 → 71.0)—so model rankings are platform-conditional.
+- **Platform hardening is strongly model-dependent.** SecLaw cuts the GPT-5 family's attack rate by up to **−48 pp** (GPT-5.4: 69.7 → 21.9), but barely moves Gemini-3-Flash (−6.2 pp) and even *worsens* Gemini-3.1-Pro on PSE (53.3 → 61.7) and IPI (58.0 → 71.0)—so model rankings are platform-conditional.
 
 <details>
-<summary><b>Per-category heatmap</b> (15 configs × 26 categories)</summary>
+<summary><b>Per-category heatmap</b> (15 configs × 24 categories)</summary>
 
 <p align="center">
   <img src="assets/per_category_heatmap.png" alt="Per-category attack-success rate heatmap" width="100%">
@@ -105,7 +102,7 @@ We evaluate **15 (platform, model) configurations** spanning three OpenClaw-fami
 </details>
 
 <details>
-<summary><b>Defense coverage matrix</b> (12 OS-style defenses × 26 categories)</summary>
+<summary><b>Defense coverage matrix</b> (11 OS-style defenses × 24 categories)</summary>
 
 <p align="center">
   <img src="assets/defense_coverage_heatmap.png" alt="Defense coverage matrix" width="100%">
@@ -219,7 +216,7 @@ Full flag listing: `python3 scripts/judge.py --help`.
 
 ```
 SafeClawBench/
-├── tasks/                  # 436 task JSONs across 4 dimensions
+├── tasks/                  # 406 task JSONs across 4 dimensions
 │   ├── ssi/    pse/    cdf/    ipi/
 ├── scripts/                # Runner, automated evaluator, generators
 │   ├── judge.py            # Per-task evaluator (deterministic taint-matcher)
@@ -243,7 +240,7 @@ SafeClawBench/
 
 ## Reproducing Paper Results
 
-To reproduce the headline table, run all 436 tasks for each of the 15 (platform, model) configurations:
+To reproduce the headline table, run all 406 tasks for each of the 15 (platform, model) configurations:
 
 ```bash
 for platform in openclaw nemoclaw seclaw; do
@@ -292,13 +289,13 @@ The benchmark is designed to be extended without modifying core code. The [`cont
 python3 contrib/generate.py --list
 
 # Generate tasks from your own category module
-python3 contrib/generate.py --category 1.7 --output-dir tasks/contrib
+python3 contrib/generate.py --category 1.6 --output-dir tasks/contrib
 
 # Validate the generated JSONs
 python3 contrib/validate_task.py tasks/contrib/
 
 # Run a contributed task
-python3 scripts/judge.py tasks/contrib/ssi-1.7-001.json --verbose
+python3 scripts/judge.py tasks/contrib/ssi-1.6-001.json --verbose
 ```
 
 ---

@@ -18,9 +18,7 @@
     "os_analogy": "IPC without credential checking: process A sends sensitive data through a Unix socket to process B with no capability verification or data classification",
     "targeted_component": "sim_google_integration",
     "invariants_violated": [
-      "I3",
-      "I6",
-      "I7"
+      "I4"
     ],
     "generation_method": "auto",
     "sim_google_chain": [

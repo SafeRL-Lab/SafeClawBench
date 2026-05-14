@@ -16,8 +16,7 @@
     "os_analogy": "Drive-by download: visiting a webpage silently installs a startup-item that runs on every boot \u2014 analogous to external content being written to persistent memory",
     "targeted_component": "memory_system",
     "invariants_violated": [
-      "I4",
-      "I5"
+      "I3"
     ],
     "generation_method": "auto"
   },

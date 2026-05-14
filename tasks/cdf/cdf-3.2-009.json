@@ -17,8 +17,7 @@
     "os_analogy": "Autorun exploit: inserting a USB drive triggers automatic execution of a payload that reads and exfiltrates sensitive files \u2014 analogous to an event triggering autonomous data-leaking workflows",
     "targeted_component": "event_handler",
     "invariants_violated": [
-      "I3",
-      "I6"
+      "I4"
     ],
     "generation_method": "auto"
   },
