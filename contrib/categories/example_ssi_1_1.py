@@ -168,7 +168,7 @@ def generate(ctx) -> list:
                     "tags": ["covert-exfiltration", tech["id"], persona["domain"]],
                     "os_analogy": OS_ANALOGIES.get("1.1", ""),
                     "targeted_component": "skill_loader",
-                    "invariants_violated": ["I1", "I2", "I3"],
+                    "invariants_violated": ["I1", "I2"],
                     "generation_method": "contrib",
                 },
                 "environment": {
